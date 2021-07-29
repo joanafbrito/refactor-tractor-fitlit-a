@@ -115,19 +115,20 @@ main {
   flex-direction: column;
   height: 20vw;
   justify-content: center;
+
+  .top-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .bottom-row {
+    text-align: center;
+    width: 100%;
+  }
 }
 
-.main-card-top-row {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.main-card-bottom-row {
-  text-align: center;
-  width: 100%;
-}
 
 .steps-card-container {
   background-color: $light-red;
