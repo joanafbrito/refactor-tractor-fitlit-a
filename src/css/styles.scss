@@ -1,5 +1,6 @@
 @use '_colors' as *;
 @use '_fonts' as *;
+@use '_mixins' as *;
 
 *,
 *:after,
@@ -183,52 +184,27 @@ main {
 
 /* BUTTONS */
 .info-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
+  @include cardIconButton;
   display: inline;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
 }
 
 .friends-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
+  @include cardIconButton;
   display: inline;
-  height: 3.4vw;
-  margin-right: 1vw;
-  width: 3.4vw;
 }
 
 .calendar-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
+  @include cardIconButton;
   display: inline;
   float: right;
-  height: 3.4vw;
-  margin-right: 1vw;
-  width: 3.4vw;
 }
 
 .trending-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
+  @include cardIconButton;
 }
 
 .go-back-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
+  @include cardIconButton;
 }
 
 .steps-go-back-button {
