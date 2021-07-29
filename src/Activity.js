@@ -11,7 +11,7 @@ class Activity {
   }
   doActivity(userRepo) {
     var activity = this;
-    userRepo.users.find(function(user) {
+    userRepo.users.find(user => {
       return user.id === activity.userId;
     }).updateActivities(this);
   }
