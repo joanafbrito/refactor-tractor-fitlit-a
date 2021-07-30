@@ -7,4 +7,3 @@ import Activity from './Activity';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
 import domUpdates from './domUpdates';
-
