@@ -47,15 +47,15 @@ button:active {
   position: relative;
   text-align: center;
   z-index: 100;
-}
 
-.dropdown-p {
-  font-size: 1.2vw;
-  font-weight: 300;
-  padding-bottom: 1vw;
-  padding-top: 0;
-  text-align: center;
-  width: 100%;
+  p {
+    font-size: 1.2vw;
+    font-weight: 300;
+    padding-bottom: 1vw;
+    padding-top: 0;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 /* TEXT ELEMENTS */
@@ -132,27 +132,34 @@ main {
 
 
 .steps-card-container {
-  background-color: $light-red;
-  grid-area: steps;
-  margin: .5vw;
+  @include cardContainer($light-red, steps);
 }
 
 .hydration-card-container {
-  background-color: $light-blue;
-  grid-area: hydration;
-  margin: .5vw;
+  @include cardContainer($light-blue, hydration);
+
+  .hydration-weekly-label {
+    font-size: 1vw;
+    padding-top: 1vw;
+  }
+
+  .hydration-weekly-amount {
+    font-size: 2vw;
+  }
+
+  .hydration-data-line {
+    display: flex;
+    justify-content: center;
+    margin-bottom: .2vw;
+  }
 }
 
 .stairs-card-container {
-  background-color: $light-purple;
-  grid-area: stairs;
-  margin: .5vw;
+  @include cardContainer($light-purple, stairs);
 }
 
 .sleep-card-container {
-  background-color: $light-yellow;
-  grid-area: sleep;
-  margin: .5vw;
+  @include cardContainer($light-yellow, sleep);
 }
 
 .card-data-line {
@@ -161,20 +168,6 @@ main {
   margin-bottom: 2vw;
 }
 
-.hydration-weekly-label {
-  font-size: 1vw;
-  padding-top: 1vw;
-}
-
-.hydration-weekly-amount {
-  font-size: 2vw;
-}
-
-.hydration-data-line {
-  display: flex;
-  justify-content: center;
-  margin-bottom: .2vw;
-}
 
 .trend-line {
   font-size: 2vw;

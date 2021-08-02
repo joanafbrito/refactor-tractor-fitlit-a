@@ -7,3 +7,9 @@
   margin-left: 1vw;
   width: 3.4vw;
 }
+
+@mixin cardContainer ($color, $gridArea) {
+  background-color: $color;
+  grid-area: $gridArea;
+  margin: .5vw;
+}
