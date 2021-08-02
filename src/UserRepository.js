@@ -5,15 +5,15 @@ class UserRepository {
     this.users = [];
   }
   getUser(id) {
-    return this.users.find(function(user) {
+    return this.users.find(user => {
       return user.id === id;
     })
   }
   calculateAverageStepGoal() {
-    let goals = this.users.map(function(user) {
+    let goals = this.users.map(user => {
       return user.dailyStepGoal;
     });
-    let total = goals.reduce(function(sum, goal) {
+    let total = goals.reduce((sum, goal) => {
       sum += goal;
       return sum;
     }, 0);
