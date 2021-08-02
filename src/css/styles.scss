@@ -1,3 +1,7 @@
+@use '_colors' as *;
+@use '_fonts' as *;
+@use '_mixins' as *;
+
 *,
 *:after,
 *:before {
@@ -7,8 +11,8 @@ padding: 0;
 }
 
 body {
-  background-color: #1F1F1F;
-  font-family: 'Oswald', sans-serif;
+  background-color: $dark-grey;
+  font-family: $general-font;
 }
 
 /* HEADER */
@@ -22,7 +26,7 @@ button:active {
   outline: none;
 }
 
-#profile-button {
+.profile-button {
   background-image: url(../images/profile.png);
   background-position: center;
   background-size: 5.6vw;
@@ -35,28 +39,28 @@ button:active {
   width: 5.6vw;
 }
 
-#user-info-dropdown {
-  background-color: #1F1F1F;
-  color: white;
+.user-info-dropdown {
+  background-color: $dark-grey;
+  color: $text-white;
   margin-left: 60%;
   margin-top: -1.2%;
   position: relative;
   text-align: center;
   z-index: 100;
-}
 
-.dropdown-p {
-  font-size: 1.2vw;
-  font-weight: 300;
-  padding-bottom: 1vw;
-  padding-top: 0;
-  text-align: center;
-  width: 100%;
+  p {
+    font-size: 1.2vw;
+    font-weight: 300;
+    padding-bottom: 1vw;
+    padding-top: 0;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 /* TEXT ELEMENTS */
 h1 {
-  color: #fff;
+  color: $text-white;
   display: inline;
   font-size: 5.4vw;
   letter-spacing: .2em;
@@ -69,7 +73,7 @@ h2 {
 
 h3 {
   display: inline;
-  font-family: 'Work Sans', sans-serif;
+  font-family: $secondary-font;
   font-size: 3vw;
   font-weight: 700;
   letter-spacing: .2em;
@@ -86,7 +90,7 @@ h5 {
 }
 
 p {
-  font-family: 'Work Sans', sans-serif;
+  font-family: $secondary-font;
   font-size: 1.2vw;
   font-weight: 600;
   letter-spacing: .2vw;
@@ -112,42 +116,50 @@ main {
   flex-direction: column;
   height: 20vw;
   justify-content: center;
+
+  .top-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .bottom-row {
+    text-align: center;
+    width: 100%;
+  }
 }
 
-.main-card-top-row {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+
+.steps-card-container {
+  @include cardContainer($light-red, steps);
 }
 
-.main-card-bottom-row {
-  text-align: center;
-  width: 100%;
+.hydration-card-container {
+  @include cardContainer($light-blue, hydration);
+
+  .hydration-weekly-label {
+    font-size: 1vw;
+    padding-top: 1vw;
+  }
+
+  .hydration-weekly-amount {
+    font-size: 2vw;
+  }
+
+  .hydration-data-line {
+    display: flex;
+    justify-content: center;
+    margin-bottom: .2vw;
+  }
 }
 
-#steps-card-container {
-  background-color: #F5634B;
-  grid-area: steps;
-  margin: .5vw;
+.stairs-card-container {
+  @include cardContainer($light-purple, stairs);
 }
 
-#hydration-card-container {
-  background-color: #54C6BE;
-  grid-area: hydration;
-  margin: .5vw;
-}
-
-#stairs-card-container {
-  background-color: #8975B2;
-  grid-area: stairs;
-  margin: .5vw;
-}
-
-#sleep-card-container {
-  background-color: #FBD089;
-  grid-area: sleep;
-  margin: .5vw;
+.sleep-card-container {
+  @include cardContainer($light-yellow, sleep);
 }
 
 .card-data-line {
@@ -156,20 +168,6 @@ main {
   margin-bottom: 2vw;
 }
 
-.hydration-weekly-label {
-  font-size: 1vw;
-  padding-top: 1vw;
-}
-
-.hydration-weekly-amount {
-  font-size: 2vw;
-}
-
-.hydration-data-line {
-  display: flex;
-  justify-content: center;
-  margin-bottom: .2vw;
-}
 
 .trend-line {
   font-size: 2vw;
@@ -179,126 +177,34 @@ main {
 
 /* BUTTONS */
 .info-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
+  background-image: url(../images/info-icon.png);
+  @include cardIconButton;
   display: inline;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
 }
 
 .friends-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
+  background-image: url(../images/friends-icon.png);
+  @include cardIconButton;
   display: inline;
-  height: 3.4vw;
-  margin-right: 1vw;
-  width: 3.4vw;
 }
 
 .calendar-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
+  background-image: url(../images/calendar-icon.png);
+  @include cardIconButton;
   display: inline;
   float: right;
-  height: 3.4vw;
-  margin-right: 1vw;
-  width: 3.4vw;
 }
 
 .trending-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
+  background-image: url(../images/trending-icon.png);
+  @include cardIconButton;
 }
 
 .go-back-button {
-  background-position: center;
-  background-size: 3.4vw;
-  border: none;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
+  background-image: url(../images/go-back-icon.png);
+  @include cardIconButton;
 }
 
-.steps-go-back-button {
-  background-image: url(../images/steps-goback.png);
-}
-
-.steps-info-button {
-  background-image: url(../images/steps-info.png);
-}
-
-.steps-friends-button {
-  background-image: url(../images/steps-friends.png);
-}
-
-.steps-calendar-button {
-  background-image: url(../images/steps-calendar.png);
-}
-
-.hydration-go-back-button {
-  background-image: url(../images/hydration-goback.png);
-}
-
-.hydration-info-button {
-  background-image: url(../images/hydration-info.png);
-}
-
-.hydration-friends-button {
-  background-image: url(../images/hydration-friends.png);
-}
-
-.hydration-calendar-button {
-  background-image: url(../images/hydration-calendar.png);
-}
-
-.stairs-go-back-button {
-  background-image: url(../images/stairs-goback.png);
-}
-
-.stairs-info-button {
-  background-image: url(../images/stairs-info.png);
-}
-
-.stairs-friends-button {
-  background-image: url(../images/stairs-friends.png);
-}
-
-.stairs-calendar-button {
-  background-image: url(../images/stairs-calendar.png);
-}
-
-.sleep-go-back-button {
-  background-image: url(../images/sleep-goback.png);
-}
-
-.sleep-info-button {
-  background-image: url(../images/sleep-info.png);
-}
-
-.sleep-friends-button {
-  background-image: url(../images/sleep-friends.png);
-}
-
-.sleep-calendar-button {
-  background-image: url(../images/sleep-calendar.png);
-}
-
-
-.steps-trending-button {
-  background-image: url(../images/steps-trending.png);
-}
-
-.stairs-trending-button {
-  background-image: url(../images/stairs-trending.png);
-}
 
 /* CHANGING CLASSES */
 .hide {
@@ -306,13 +212,13 @@ main {
 }
 
 .green-text {
-  color: green;
+  color: $text-green;
 }
 
 .red-text {
-  color: red;
+  color: $text-red;
 }
 
 .yellow-text {
-  color: #F8BA00;
+  color: $text-yellow;
 }
