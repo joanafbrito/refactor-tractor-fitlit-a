@@ -4,6 +4,7 @@ import User from './User';
 import Activity from './Activity';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
+import { userData, hydrationData, sleepData, activityData } from './fetch';
 
 // Query Selectors 
 let friendsStepsParagraphs = document.querySelectorAll('.friends-steps');
@@ -64,32 +65,6 @@ let trendingStairsPhraseContainer = document.querySelector('.trending-stairs-phr
 let userInfoDropdown = document.querySelector('#user-info-dropdown');
 
 let userRepository = new UserRepository();
-
-// from the Server
-let userData, hydrationData, sleepData, activityData
-
-// Data Fetching 
-let fetchData = (dataType) => {
-    return fetch(`http://localhost:3001/api/v1/${dataType}`)
-        .then(response => {
-            return response.ok ? response.json() : console.log(`ERROR with ${dataType} path`)
-        })
-        .then(data => data)
-}
-
-// Promises 
-Promise.all([fetchData('users'), fetchData('hydration'), fetchData('sleep'), fetchData('activity')]).then((data)=> {
-    updateData(data)
-})
-
-let updateData = (data) => {
-    userData = data[0].userData
-    hydrationData = data[1].hydrationData
-    sleepData = data[2].sleepData
-    activityData = data[3].activityData
-    // call a function that updates the dom
-    updateDom()
-}
 
 const updateDom = () => {
 
@@ -313,7 +288,6 @@ const updateDom = () => {
   });
 };
 
-
   friendsStepsParagraphs.forEach(paragraph => {
     if (friendsStepsParagraphs[0] === paragraph) {
       paragraph.classList.add('green-text');
@@ -326,3 +300,4 @@ const updateDom = () => {
     }
   });
 
+export { updateDom } ;
