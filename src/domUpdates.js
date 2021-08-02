@@ -1,14 +1,9 @@
-// import userData from './data/users';
-// import activityData from './data/activity';
-// import sleepData from './data/sleep';
-// import hydrationData from './data/hydration';
 
 import UserRepository from './UserRepository';
 import User from './User';
 import Activity from './Activity';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
-
 
 
 let userRepository = new UserRepository();
@@ -18,7 +13,6 @@ let userData, hydrationData, sleepData, activityData
 
 // Data Fetching 
 let fetchData = (dataType) => {
-    // console.log(`http://localhost:3001/api/v1/${dataType}`)
     return fetch(`http://localhost:3001/api/v1/${dataType}`)
         .then(response => {
             return response.ok ? response.json() : console.log(`ERROR with ${dataType} path`)
@@ -36,7 +30,7 @@ let updateData = (data) => {
     hydrationData = data[1].hydrationData
     sleepData = data[2].sleepData
     activityData = data[3].activityData
-    // call a function that wraps everything from the dom
+    // call a function that updates the dom
     updateDom()
 }
 
