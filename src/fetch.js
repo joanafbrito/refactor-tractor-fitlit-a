@@ -1,4 +1,6 @@
+import { updateDom } from './domUpdates';
 
+// From the server  
 let userData, hydrationData, sleepData, activityData
 
 // Data Fetching 
@@ -14,16 +16,14 @@ Promise.all([fetchData('users'), fetchData('hydration'), fetchData('sleep'), fet
     updateData(data)
 })
 
-let userRepository = new UserRepository();
-
 let updateData = (data) => {
     userData = data[0].userData
     hydrationData = data[1].hydrationData
     sleepData = data[2].sleepData
     activityData = data[3].activityData
-     // call a function that updates the dom
+     // call a function that updates the dom- from the domUpdates
      updateDom()
 }
 
 
-// export default userFetch;
+export { userData, hydrationData, sleepData, activityData };
