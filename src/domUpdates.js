@@ -35,12 +35,15 @@ let updateData = (data) => {
 }
 
 // Query Selectors 
+let friendsStepsParagraphs = document.querySelectorAll('.friends-steps');
 let dailyOz = document.querySelectorAll('.daily-oz');
-let dropdownEmail = document.querySelector('#dropdown-email');
-let dropdownFriendsStepsContainer = document.querySelector('#dropdown-friends-steps-container');
-let dropdownGoal = document.querySelector('#dropdown-goal');
-let dropdownName = document.querySelector('#dropdown-name');
+let mainPage = document.querySelector('main');
+let profileButton = document.querySelector('#profile-button');
 let headerName = document.querySelector('#header-name');
+let dropdownFriendsStepsContainer = document.querySelector('#dropdown-friends-steps-container');
+let dropdownName = document.querySelector('#dropdown-name');
+let dropdownEmail = document.querySelector('#dropdown-email');
+let dropdownGoal = document.querySelector('#dropdown-goal');
 let hydrationCalendarCard = document.querySelector('#hydration-calendar-card');
 let hydrationFriendOuncesToday = document.querySelector('#hydration-friend-ounces-today');
 let hydrationFriendsCard = document.querySelector('#hydration-friends-card');
@@ -48,8 +51,6 @@ let hydrationInfoCard = document.querySelector('#hydration-info-card');
 let hydrationInfoGlassesToday = document.querySelector('#hydration-info-glasses-today');
 let hydrationMainCard = document.querySelector('#hydration-main-card');
 let hydrationUserOuncesToday = document.querySelector('#hydration-user-ounces-today');
-let mainPage = document.querySelector('main');
-let profileButton = document.querySelector('#profile-button');
 let sleepCalendarCard = document.querySelector('#sleep-calendar-card');
 let sleepCalendarHoursAverageWeekly = document.querySelector('#sleep-calendar-hours-average-weekly');
 let sleepCalendarQualityAverageWeekly = document.querySelector('#sleep-calendar-quality-average-weekly');
@@ -111,6 +112,7 @@ const updateDom = () => {
     sleep = new Sleep(sleep, userRepository);
   });
 
+  // Updating the page
   let randomUserID = Math.floor(Math.random() * userData.length);
   let user = userRepository.users[randomUserID];
   let todayDate = "2019/09/22";
@@ -126,6 +128,7 @@ const updateDom = () => {
     return 0;
   });
 
+  // Event Listeners 
   mainPage.addEventListener('click', showInfo);
   profileButton.addEventListener('click', showDropdown);
   stairsTrendingButton.addEventListener('click', updateTrendingStairsDays());
@@ -312,7 +315,6 @@ const updateDom = () => {
   });
 };
 
-let friendsStepsParagraphs = document.querySelectorAll('.friends-steps');
 
   friendsStepsParagraphs.forEach(paragraph => {
     if (friendsStepsParagraphs[0] === paragraph) {
