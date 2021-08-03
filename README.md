@@ -14,7 +14,8 @@ Mod  2
   - [Project Specs](#project-specs)
 
 ## Abstract
-	Refactor Tractor Fitlit A is an fitness dashboard that shows a users health stats as well as health stats as their friends. Simple enough, right? While the user interface seems simple enough, under the hood we were given code that sorely needed to be refactored. The goal of the project was to refactor the code so it was dry as possible, connect the DOM to API endpoints rather than using data from a JS file, ensure app follows best practices for accessibility and incorporate SCSS into our styling.
+
+ Refactor Tractor Fitlit A is an fitness dashboard that shows a users health stats as well as health stats as their friends. Simple enough, right? While the user interface seems simple enough, under the hood we were given code that sorely needed to be refactored. The goal of the project was to refactor the code so it was dry as possible, connect the DOM to API endpoints rather than using data from a JS file, ensure app follows best practices for accessibility and incorporate SCSS into our styling.
 
 ## Technologies
   - Javascript
